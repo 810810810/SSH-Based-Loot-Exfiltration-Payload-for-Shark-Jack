@@ -3,7 +3,7 @@
 # 
 # Title: Shark Bite - Target Information Exfiltration Payload via Network Jack
 # Author: 810810810
-# Version: 1.0 
+# Version: 1.1v2
 # 
 # Description: This payload uses the power of the Shark Jack to gather information about 
 # the target and exfiltrate it to a remote web server using the curl command over HTTP.
